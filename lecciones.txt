@@ -1,0 +1,20 @@
+Syllabus 
+
+Introducing Power BI Destktop 
+    Installing 
+    exploring 
+    workflow 
+
+Connecting & shaping Data 
+    profiling tools 
+    editing
+    merging 
+    appending queries
+
+Creating a Data Model 
+
+Calculating Measures with DAX 
+
+Visualizing Data with Dashboards 
+
+Optimizing Power BI performance 
