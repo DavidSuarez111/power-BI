@@ -1,0 +1,151 @@
+11 sections 
+Section 1: Getting started 
+    Course structure
+        Project Based Course
+        Highly engaging approach to learn Power Bi
+
+    PDF 200+ pages
+    Quizzes and Assignments with step by step solutions videos
+    You will need to complete a bonus project to test your abilities and apply the skills developed throughout the course to a brand new data set.
+
+    1. Introducing Power Bi  
+        Install the tool 
+    2. Connect & shape data 
+    3. Create models 
+    4. Calculate measures with DAX
+    5. Visualizing Data with Dashboards
+    6. Optimizing Power Bi performance
+
+    ---
+    Resources
+    1. Power Bi for BI.pdf 
+    2. AdventureWorks Raw Data.zip 
+    3.AdventureWorks Images.zip 
+    4. AdventureWorks PBIX Files.zip
+        I downloaded them and placed them in my assets>powerBi folder. 
+    ---
+
+    Adventure Works 
+        Fictional cycling equipment and accessories manufactoring company 
+
+        Brief 
+            track KPIS
+                sales, revenue, profit, returns
+            compare regional performance, 
+            analyze product-level trends, 
+            identify high value customers
+
+    Objective 
+        Use Power BI to
+            Connect and transform the raw data
+            build a relational data model 
+            create calculated columns and measures with DAX
+            design an interactive dashborad to visualize the data
+
+
+    Setting expectations 
+        1. Your screen may not always match mine. Updates may introduce differences. 
+        2. This course is desgined to help you build foundational skills 
+        3. Hands on and project based learning experience. Follow on closely   
+        4. Power BI service is not included
+
+Section 2: Introducing Microsoft Power BI desktop 
+    Topics to cover
+        1. Introduce Power Bi 
+        2. Installation
+        3. Interface & workflow
+        4. Power Bi vs Excel
+        5. Adjusting Settings
+        6. Helpful Resources
+
+   Goals for this section 
+        1. Download and install power Bi 
+        2. Understand the role that Power Bi plays
+        3. Explroe core components of the power BI Interface
+        4. Review the BI workflow that we'll follow as we build our couse project 
+
+    What is power BI? 
+    self service BI platform,
+    desktop and web based applications for 
+    connecting, modeling and visualizing data
+
+    Why power BI? 
+    It allows you to connect, transform and load millions of rows of data. 
+    YOu can build relational models to blend data from multiple sources
+    Define complex calculations using Data Analysis Expressions (DAX)
+    Bring data to life with interactive reports and Dashboards
+    Develop a versatile, in demand skill set 
+
+    Excel vs Power Bi 
+    Excel
+    Spreadsheets, pivot tables, A1 Notation, cell formulas
+
+     Power BI 
+     report view, custom visuals, interactive dasboards, power Bi service 
+
+     In common 
+     Power Query 
+     Data Model 
+     DAX 
+
+    Excel and Power Bi are built on top of the same analytics engines. 
+
+    Power Bi takes the same data tranformation and modeling capabilities and adds powerful visualization and publishing tools. 
+    Transition is easy. From Excel to powerBi and viceversa. 
+
+    DOWNLOAD 
+    You can either go to 
+        Web page, but 
+            you download a .exe file that will need administrator access and will not automatically Update
+
+            or 
+        Microsoft store (choose this)
+            Best. Auto update and no need to grant administrator access. 
+        
+
+    Setting Power BI 
+    Global > Preview Features 
+        select all, apparently each month they tend to apply changes so maybe checking it from time to time will be needed. 
+
+    Current File > Data Load 
+        Unselect: 
+            Update or delete relationships when refreshing data, 
+            Autodetect new relationships after data is loaded 
+                for the purpose of this course we want to generate them not allowing the program to automatically make them. 
+            Time intelligence > auto date|time 
+
+    Note: Current file settings should be adjusted in each file. 
+
+    Power Bi Workflow 
+    1.Extract and transform data in the Power Query editor -Back End
+    2.Load the data in the Power Bi - Front End. 
+    3.Data View 
+    4.Report View
+    {Query, Model View, Data View, Report View}
+
+    1. Get data
+        Either Excel, SQL, CSV or else. 
+    You select your data source from either Get Data button or Transform Data and click on close and apply to load. 
+
+    2. model view. At the left side. 
+
+    3. Data view or table view. 
+        Depending on the data that you select different menus will be accesible. i.e. a column or a table.
+
+    4. Report View. 
+        Add graphs and visuals in different pages. 
+
+    End of user interface 
+
+    Power Bi is in constant updating, monthly generally so new features may be added. 
+
+Power Bi services allows to publish data and collaborate in real time with peers. 
+
+Section 3: Connecting and Shaping Data 
+
+
+
+
+
+
+    

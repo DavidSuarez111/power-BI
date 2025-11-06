@@ -12,9 +12,25 @@ Connecting & shaping Data
     appending queries
 
 Creating a Data Model 
-
+    Building relational models
+    table relationships
+    cardinalidad
+    filtros
 Calculating Measures with DAX 
-
+    Entender la sintaxis DAX
+    añadir columnas calculadas, medidas
+    formulas y funciones
 Visualizing Data with Dashboards 
+    Tablas y visuales
+    formatos customizables
+    interacciones de edición
+    filtros
+        Comunicar: comparaciones, composiciones, distribuciones, relaciones
+            Cada uno con sus visuales. Lo mejor es elegir lo que comunique con claridad.
 
 Optimizing Power BI performance 
+    Optimization tools in
+        Optimize
+        external tools menus
+
+For data professionals and aspiring analysts.
