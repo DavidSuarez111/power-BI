@@ -142,10 +142,245 @@ Section 2: Introducing Microsoft Power BI desktop
 Power Bi services allows to publish data and collaborate in real time with peers. 
 
 Section 3: Connecting and Shaping Data 
+    AdventureWorks project
+        connect, shape and transform data using power Query 
+
+    Load Data 
+    Explore the common techniques for extracting, cleaning and shaping data for modeling and analysis. 
+
+    Topics to cover 
+    1. Intro to Power Query 
+    2. Query Editor 
+    3. Data QA & Profiling 
+    4. Data connectors
+    5. Calendar tools 
+    6. Connection MOdes 
+    7. Table Transformations 
+    8. Combining Queries
+
+    Goals for this section 
+    >Explore Power BIs query editor and understand the role that power query plays in the larger Bi workflow 
+    >Introduce different types of connectors and connectivity modes for getting datta into power bi 
+    >Review tools for checking data quality and key profiling metrics like col distribution, empty values, errors and outliers
+    >Transform table susing text, numerical and date/time tools, pivot and group records, and create new conditional columns 
+    >Practice combining, modifying and refreshing queries
+
+    Front End vs Back End 
+    Front 
+        Data, Model & report views 
+
+    Back 
+        Power Query Editor (raw data is ETL)
+
+    Back 
+        Connect and extract data 
+        profile & QA 
+        Transform & shape
+        merge or append queries
+        advanced transformations using M code 
+
+    Front 
+        Build data models by creating table relationships between keys 
+        Add calculated measures & columns using DAX 
+        Design reports to visualize the data and create interactive, dynamic Dashboards
+        Publish and share your power Bi 
+
+    Data Connectors 
+        Acces data. 
+            From virtually anywhere 
+            flat files (CSV, text, xlsx, etc)
+            databases (SQL, Access, Oracle, IBM, etc.)
+            power platform (Datasets, Datamarts, Dataflows, Dataverse, etc.)
+            Azure (Azure SQL, Analysis Services, Databricks, etc.)
+            Online Services (SharePoint, Github, Dynamics, Google Analytics, salesforce, Power Bi service)
+            Other (web feeds, R scripts, Spark, Hadoop, etc.)
+
+        Wow the Get Data menu really holds an extended list of all possible sources. Most of them i dont even know them. 
+
+        "Once you correctly entered the connector details and authenticated the credentials you always arrive at the same result: Query Editor" 
+        On experience you connect the data and it opens a preview window with the name of the file and a sample. 
+            Then, you can either load or transform the data. Transform data leads you to the query editor. 
+
+    
+    1st Load Completed. Looks like an excel type of format but with different options even R or python scripts.
+    Next we go to explore the
+    
+    Power Query Editor 
+    Home section is where you spend most of the time applying transformations and calculations.
+    Then there is a badge with formulas known to be written in "M" code. 
+        M code automatically writes itself when applying formulas when you are advanced at power BI sometimes you write it yourself too. \
+    Very similar is VBA. Visual basic.
+
+    Left side we got the Queries vertical badge. 
+        Lists all of our queries. 
+        All connections or queries are there. 
+        You can edit the properties here. 
+
+    Table preview, most of the screen: where data is. 
+
+    At the right side the vertical badge named query settings holds the name of the table which should make sense and be human readable. 
+        In contrast with SQL or python the names are not snake or camel case. Just humane, just write briefly and descriptively what that table represents.
+    This vertical badge also has the log of actions, the applied steps, the macro of the adjustments that you have made to the document. 
+
+    3 primary tabs
+        1. Home
+            General settings and common transformation tools
+        2. Transform 
+            Tools to modify exsiting columns
+                Splitting, grouping, transposing, extracting text, etc. 
+        3. Add column 
+            Create brand new columns. 
+            Based on conditional rules, text operations, calculations, dates, etc. 
+Home
+    Basic Table Transformations. (Home)
+    Choose columns or remove columns. 
+    Keep rows or remove rows. 
+        Also has remove duplicates. 
+            Sometimes you need to get rid of headers, totals...
+
+    There is also sort and data type buttons.
+    And, although not home related you can access most functions by using right click on the columns. 
+
+---
+    I connected to the csv Product Lookup 
+        I saw in applied steps the source with the location information, comma delimeter, else. 
+        Also promoted headers and changed type where in M formula you can see each type of data selected for each column. 
+
+    Changing the data type to Currency.Type did not function as the video course.
+
+    Gold standard habits
+        Adjust table names
+        Review|Confirm data types
+
+First Assignment
+    Table transformations
+
+7 assignments 
+1. Create queries to connect two new .csv files 
+2. Name your queries 
+    Product Category Lookup and Product Subcategory Lookup 
+3. Confirm that column headers have been promoted and that all data types are correct
+4. Add a new column
+    To extract all characters before the dash ("-") in the Product SKU col
+        name it SKU Type 
+5. Update the SKU Type 
+6. Replace Zeros (0) in the Product Style column with "NA" 
+7. Close and load to your data model 
+
+Ok so connections where easy I changed the name. 
+To add a new column where I extract the values from the reference col: 
+    I used right click add column from examples and power BI found the pattern when writing two examples.
+    Another solution is to go to the tab Add column and select extract place the delimiter and done. 
+
+Then to update the col to have the values until the second delimeter I sed the M code. adding a comma and a 1 as it is zero based. 
+Another solution is to go to the applied steps adjust button advanced and place 1. Which in context makes less sense as it reads as if it will skip just 1 delimeter instead of knowing that the code is 0 based. 
+
+Then replace the values with click on the column replace values 0 for NA.
 
 
+Storage & Connection Modes 
+    Import 
+    Dataset is less than 1 GB 
+    Source data does not change frequently 
+    No restrictions o power Query, modeling and DAX. 
 
+    Direct Query 
+    Dataset is too large to be stored in memory 
+    Source data changes frequently and reports must reflect changes 
+    Company policy states that data can only be accessed from the original source
 
+    Composite Model 
+    Boost performance by setting appropriate storage for each table 
+    Combine a DirectQuery model with additional imported data 
+    Create a single model from two or more DirectQuery models
 
+    Live connection 
+    create one dataset that serves as a central source of truth 
+    Analyst teams can create different analysis from the same dataset 
+    multi developer team to advance on separate functions each one changes the data the other visualizes it. 
+
+    Connecting to a Database 
+    PowerQuery 
+        Can connect to data from various database sources including SQL server, MS access, MySQL, PostgreSQL, ORACLE, SAP & more. 
+
+    Steps to load a mysql database 
+        Set server number 
+            Database name (advanced options to place limits)
+                ok. = Data loaded.
+
+        In the tables or queries with right click one can click in enable load to not load the tables in the future report. 
+            This way we can use the data for intermediate steps to make a better formatted table without clogging or spending computational resources. 
+
+    
+
+    Load from a Web connector so a url that has any structured table can be identified scraped by Power Query. 
+
+    Data QA & Profiling tools 
+    Tools 
+        Column quality 
+        column distribution 
+        column profile 
+            So we use this parameters to explore the data prior to loading it into Power Bi
+
+    In the view tab of query editor 
+    There is the option to display the quality values of the data by clicking in blank squares which is separated into valid, error and empty. 
+        The number of each type of quality can be known by hovering over each percentage and by clicking the options menu or the 3 points we can take actions like removing or keeping duplicates, empty values or errors. 
+
+    Col distribution
+        Enumerates the distinct and unique records. 
+
+    Column profile 
+        Holistic view and statistics
+            Count, 
+            Distinct count,
+            unique, 
+            min and max. 
+
+    Note: the statistics are based on the first 1000 rows one must click on a botton at the left bottom to consider the entire dataset
+
+    To explore the errors click on keep errors and select each. 
+
+    To clean the errors and empty values well click on remove errors then remove empty values. The steps will be registered and can be reverted in the applied steps section. 
+
+    Duplicates can be useful so it is necessary to have awareness before deciding to remove them. But still it is an action that can be clicked. 
+
+    ---
+    Text tools 
+    All in the transform tab at the right side. Text column 
+    Format a text column allows to apply lowercase, uppercase, trim, clean or add prefixes or sufixes. 
+    Extract function can be set to all before or after a delimeter, by lenght, first or last characters. 
+
+    Next Assignment 
+    Text tools 
+
+    So imagine you get an email saying: 
+    Hi! 
+    We re looking to better understand where our customer may be coming from, based on their email domains. 
+    Could you please create a new column in the customer table that will allow us do to this? 
+
+    Thanks!
+    -ETL
+
+    Objectives to achieve the task 
+
+    1. Duplicate the email address column and name it "Domain Name"
+    2. In the new column, remove all text/characters except for the domain name 
+    3. Use transformation steps to clean up and capitalize the domain names 
+    4. Save & apply changes.
+
+    Duplicate, name, then the interesting extract all after "@"
+
+    Then I replaced .com with nothing so to remove it and replaced - with a space then capitalized 
+
+    The solution made the same and then stayed with everything before .com. 
+    Same result 
+
+    Numerical tools 
+    basic stats sum, min/max, average, count, count distinct
+
+    standard, scientific and trinometry allow for simple to complex operations from addition to sine, tangent and else. 
+
+    So the Actual practice of numerical tools. 
+    
 
     
