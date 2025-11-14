@@ -382,5 +382,194 @@ Storage & Connection Modes
 
     So the Actual practice of numerical tools. 
     
+    In the transform tab you can find statistics.
+    Numerical operations may vary according to the data type but some usual operations can be counting distinct, average, sum. 
+        Interesting enough it counts as an applied step and is usually just for exploration purposes not for final dashboards. 
 
+    You can apply rounding and decide the amount. 
+
+    Or multiply times 0.9 to make a new discount price column. 
+
+    Assignment Arrived: 
+
+    Hi again, 
+    Leadership is asking us to validate some high-level stats about our products and customers. Can you please help me answer the following questions? 
+
+    We don't really need to store these values anywhere, so make sure to restore the tables back to their original state once you're done pulling the stats. 
+    Thank you!
+    -ETL 
+
+
+    Lets do the assignment 
+    Objectives 
+
+    1. What is our average product cost? 
+    2. Determine in how many colors do we sell our products. 
+    3. How many distinct customers do we have? 
+    4. What is the maximum annual customer income? 
+    5. Return the tables to their original state 
+
+    What i did to solve each objective/step. 
+
+    First enter query by right clicking on the model view in the product lookup table selecting edit query. 
+        Go to column ProductCost, select the column, go to the transform tab, statistics and select average. Voila = 413.6$ dlls as the average price. p.d eliminate the step.
+    Second step: select Product color column go to transform tab and select count distinct under the statistics button and the answer is 10 different colors. 
+    Third step: close the product lookup table and open the query of customer lookup. Select the customer key column and under transform statistics click on count distinct values which gives a total of 18148 customers. 
+    4th step. Select AnnualIncome transform>statistics>maximum = 170000 $ dlls annually. 
+
+    Easy like 3 minutes haha.
+
+    Date and Time tools 
+
+    In the add column tab. 
+    Age: difference between the current date and the date in each rows
+    Date only: removes the time component from a date/time field
+    year/month/quarter/week/day extracts individual components
+    earliest/latest evaluates the date from a column as a single value *this is in transform menu or tab. 
+
+    ok so i loaded the table and checked the earliest which is like a minimum but for dates. 
+    in add column clicking on name of day adds well the name of the day of each date value. 
+    start of week. you can actually change the day that you mark as start so 1 in the M code or adjust in the applied steps would be a monday, two tuesday and so on, by default is sunday.
+        Instead of 1 to make it readable you can place Day.Monday. 
+    Start of month. Also consider selecting the correct column when making the new ones, not out of a start of week but the original date column. 
     
+
+    Change Data Type with Locale 
+    Left click the data type icon in the column header and select the using locale option, select data type and language. 
+    Serves to avoid data formatting variations as not all places have the days and months in the same place. 
+
+    Ok so here they used a date error table and I seem not to have that document so I just viewed the changing of data types instead of following through. 
+
+    Pro Tip 
+    Rolling Calendars. 
+    Based on the current data time. So it evolves. 
+
+    Get data > blank query > name it rolling calendar. 
+
+    Ok so I first made an initial date 
+    =#date(2020,1,1)
+
+    Then, used an M formula to make a range of dates as a list. 
+        = List.Dates(
+        Source, 
+        Number.From(DateTime.LocalNow()) - Number.From(Source), 
+        #duration(1, 0, 0, 0)
+        )
+    
+    Then renamed the column to Date and added new calculated date columns (year, start of month, start of quarter) shamely then just close it not save (it was just an example)
+
+    Now, the real one starting from 2023 and using the same M formula. 
+    Nevermind, with just changing the initial source from 1/1/2020 to 1/1/2023 the next example excercise could be achieved. So thats what i did. 
+
+    Assignment: Calendar tables
+
+    Hi,
+    we need to add a few fields to our calendar table to help us analyze sales trending over time. 
+    could you please add the following columns when you get a chance? 
+    -ETL 
+
+    Add the following columns to the calendar table: 
+    Month Name 
+    Month Number
+    Start of Year 
+    Year 
+
+    Very easy excercise so just importing the table data. 
+    Then adding columns selecting date and from there each field by clicks Month Name, Month Number, Start of Year, Year. 
+
+    Index Columns 
+    In add column tab
+        Contains a list of sequential values that can be used to identify each unique row. Starting from either 0 or 1 and growing towards infinity. 
+        Index serve to create unique IDs. 
+
+    Conditional columns 
+    Also in Add column tab. 
+    They define new fields based on logical rules and conditions (IF/then)
+        You can make a column out of order quantity (single =1, >1, other),
+    
+    So then I continued with importing the sales data from year 2022 changing the name of the file and making an index in the add column tab starting from 1. 
+    So we (the guy in the course video and me I guess) removed the index and interesting enough the applied steps did not disappear just the column so the index still exist, 
+    still is an applied step that holds information even without the formal column. 
+    Ok, then we did removed the 3 steps (making of the index, changing its position and removing it) done, now index is forever gone. 
+    Lets add a conditional column. 
+        if order quantity = 1
+        else if >1 multiple items. 
+    
+    Calculated column best practices
+    Table transformations and col calculations should ideally happen as close to the original data source as possible, to optimize performance and speed. 
+
+    upstream to downstream > 
+    Data Source > Power Query > Power Bi Front-End > Published Reports
+
+
+    Grouping and Aggregating Data
+    Transform tab. 
+    Group by button. 
+        Aggregates data at a different level or "Grain" 
+        so with aggregating you can see information/records that are usually daily compressed into monthly or by store. 
+
+    Group by 
+    Choose a column 
+    Name the column to be made, the operation type, and the output. 
+    
+    In advanced settings you can apply multiple grouping columns. 
+    So as an example Product key and Customer key 
+    total quantity, sum, order quantity 
+
+    This is like creating a Pivot Table in excel and pulling in sum of order quantity
+    Grouping is basically similar to pivoting
+
+    So a practicing step was loading the complete data in product key and grouping by the count of orders of each product. 
+    Then the steps were removed so then again now more advanced. 
+
+    Grouping product key, customer key. 
+
+    Pivoting and Unpivoting
+    Is the process of turning distinct row values into columns, and unpivoting describes the process of turning distinct columns into rows. 
+
+    transpose makes a column out of each row. 
+
+    Then, i passed through an excercise of unpivoting. 
+        So I imported the product category sales file, selected 3 columns those of regions and in the transform tab selected unpivot and rename to region and quantity sold respectively. 
+        Theeeeen, pivot them again.
+        Then delete the steps so it was just a practice. 
+
+    so it is a big file in terms of rows and transposing makes no sense but still we did it and removed it. 
+
+    Merging Queries 
+    On a conserved column between tables a new merged table is made. 
+    So it is a join. 
+
+    example
+    Merge sales data with product lookup on Product Key. 
+
+    Merging adds columns. Make a wider column. 
+
+    Not because you can merge one must sometimes having data in partialities is more expressive. 
+    So when merging there are two options in the home tab. Either expand the table with merge queries or make a new column with the merge. 
+        When clicking on merge you select the tables and the kind of join. 
+        In this example left outer was selected which is the kind of join that just adds to the left column the rows that matched in the second.
+        A column with just table repeated in each row appeared. An extra step should be perform. So click on the right corner of the col and select the columns to add or all. 
+        Product key, ProductName, ProductColor where selected. 
+        Now we can name the columns if desired. We can consider removing the repeated product key or else. 
+
+    Sometimes merging adds redundancy so one should do it with consciousness or leave the separated related tables for now the merge was dissolved/eliminated. 
+
+    Appending Queries
+    So it is a concatenation or adding of rows from two or more tables. 
+    It is a stack of rows or combination. 
+
+    Ex. 
+    Appending sales 2020 with sales 2021
+
+    An option to append all files in a folder is: 
+    Folder Get Data > More > Folder and all files within a specified folder (assuming shared structure) get appended and if new same structure files are added it is a matter of refreshing the query for them to be appended as well. 
+
+    Also I made an appended query as new using the 3 files of Sales data 2020 to 2022. 
+
+    Appending files from folder. 
+    
+
+
+
+
