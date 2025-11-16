@@ -703,4 +703,112 @@ Creating a Data Model
 
 
     Managing and Editing Relationships
+        manage relationships button > edit 
+            Allows to activate or deactivate relationships and manage cardinality and filter direction. 
+        So out of experience a window jumps with the names of the tables and if there are relationships between columns they appear in gray. By selecting another column a relationship is edited if pressed ok. 
+
+        Delete 
+        Right click on the line and delete option. 
+
+    Model schemas
+    STAR & Snowflake schemas 
+
+    star 
+    a fact table surrounded by dimensional ones 
+
+    even if the form does not make a star it is a star shchema. 
+
+    Snowflake
+    includes relations between dimension and related sub dimension tables. So a star with branches. 
+
+    Oh I also saw like a falling snowflake, like the table below connects with the table above and so on. Those are the branches that keep going from the main which is the sales data. 
+
+    Assignment on table relationships 
+    Hey there, 
+    Ethan shared the data model you ve been working on, and we might have an issue 
+
+    Last night I left my laptop open, and my cat Dennis somehow got his paws on our model. Now all the relationships are gone! 
+
+    Could you please rebuild the model, including all three product tables? I owe you one! 
+    -Dana 
+
+    Objectives
+    1. Delete all existing table relationships 
+    2. Create a star schema by creating relationships between Sales, Calendar, Customer, Product and Territories tables. 
+    3. Connect all three product tables (Product, Subcategory, Category) in a snowflake schema 
+    4. Use the matrix visual to confirm that you can filter Order Quantity values using fields from each dimension table. 
+
+    The first three are  quite easy. Eliminate with right click or manage > create the relationships by dragging the columns from sales which is the fact table to each table.
+    Third step make a connection with the foreign key of subcategory which is in product and then as subcategory has the primary key of category make a relationship from subcategory to category. 
+    Then and last, in the visual matrix the rows data is changed to review the order quantity by values of each dimension table example: Orders by year of calendar or occupation of customers, or category of products, model of product lookup, subcategory name and else.  
+
+    Pro Tip Active and Inactive relationships 
+    An example to learn about active or inactive relationships is the fact type Sales table which has more than one key or shared column with the calendar namely Order Date and Stock Date. 
+        Both relations can be made but just one will be set to active the secondary inactive relationship will appear as a dotted line. 
+            Prior to activate the secondary the first one must be deactivated. 
+                Activation and deactivation can be accessed by double clicking the relationships and pressing the make primary button. 
+
+    Relationship Cardinality
+        So there are some simbols 1 to 1 or 1 to many (*), many to many. 
+            1 to 1 it could be merged and left as is in the model as it is non redundant, but context plays a role here. 
+
+            many to many. it usually is a mistake like duplicated ids. 
+        
+
+    Connecting multiple fact tables 
+    If they share connection with a table it can be done. 
+    If they share connection between them it can be done. 
+    otherwise not really. 
+
+    I continued making the model assigning the relationships to the second facts table: Returns Data table 
+        And did some dinamic table in the report section of power By. 
+
+    Filter Context & Flow 
+    The arrow is the filter direction or filter context. information can just go one way. 
+
+    Filter Flow 
+    In the course it states: In this model the only way to filter both Sales and Returns data by Territory is to use the Territory Key from the lookup table, which is upstream and related to both fact tables. 
+
+    ok so it is like going to spaces. If you stay in a table that has no connection to everything you want to see something will break. Therefore the scope should be upstream in a shared table between facts. not one sided to any facts table because the other facts table would not be able to connect. 
+
+    So in view. The rows section should be in the common space such as the territory key in the territory table. 
+        otherwise repetition would be seen mainly if we take rows out of one facts table column. 
+            A dinamic excercise was made involving using different columns for the development of practical expertise.
+    
+    key question ¿In which table is the context? Sales, Territory or Returns? 
+
+    Bi-Directional Filters 
+    Changing filter direction to both allows filter context to flow in either direction. 
+        To change it one must change the cross filter direction parameter to both. 
+
+    wow this parameter allows the filter context to move. So just by changing the cross direction or bi direction of both relations we can see correct non redundant data out of any filter. 
+    
+    two way filters can introduce errors due to ambiguity. ok so it can lead to multiple flows which is a mistake, got it (requires seing the image of the model with the relations). 
+
+    Pro tip. Try to design your models with 1 to many cardinality and in one way unless completely necessary. 
+
+    Hiding Fields from report view
+    Hide in report view option with right click on a table in the model makes the fields inaccessible from the report tab but still available in Data and Model views. 
+        also can access it from properties as is hidden. 
+
+    Pro tip: Hide the foreign keys in fact tables to force users to filter using primary keys in dimension tables. 
+
+    Assignment
+    Larry from sales sent me this screenshot. I think he must have downloaded our Power BI model and messed with some relationships, because I know we had sales for product 338. 
+    Can you help diagnose whats going on, and prevent him from doing this again? 
+    -Dana 
+
+    Key Objectives 
+    1. Replicate Larry's matrix below to diagnose what he must have done to the model 
+        which product is 338? 
+        why didn't larry's matrix show any orders? 
+    2. Hide any remaining foreign keys to prevent other users from making the same mistake
+
+    So the answer was making a filter flow bidirectional to make data not reach a filter context and lose data. 
+    Larry applied a filter with the Product key of returns Data. A way to avoid him making that mistake is to hide that column as it should be acessed from Product key. 
+    What hapenned was that yeah product 338 sold 50 times but no returns therefore when seeing it from that context it does not exist. 
+
+    Pro Tip Model Layouts 
+    Ok great so out of big complex models we can create partial views to see just the relations of a facts table at a time, as an example. Or returns. 
+
     
