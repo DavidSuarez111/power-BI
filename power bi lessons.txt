@@ -566,10 +566,141 @@ Storage & Connection Modes
     Folder Get Data > More > Folder and all files within a specified folder (assuming shared structure) get appended and if new same structure files are added it is a matter of refreshing the query for them to be appended as well. 
 
     Also I made an appended query as new using the 3 files of Sales data 2020 to 2022. 
+    Then deleted it and one of the tables that fed the concatenated/combined Sales data 2020 to 2022 table. 
 
     Appending files from folder. 
+    So as I eliminated the 3 sales data files I have them as well in a folder. 
+    To import click on get data or new source > more > folder > go to known path of the folder > combine and transform data or just transform data and then we concatenate either works. 
+        I clicked on transform. 
+        Funny enough we see just attributes of the files not the actual data. 
+        The first column has a clickable on the corner combine files button and displays a window with the data and now we are on the data. 
     
+    From folder we have the data but also an added column of Source.Name so where the data comes from and we can delete it. 
+        Side note some files are made while combining by this method and they can be just collapsed to hide them. 
+        Those files are the internal process to combine the files and actually if we add files on that folder with the same structure they will combine as well. Sometimes refreshing may be needed to see the updated data. 
+
+    Data source settings
+    used for when a file path breaks and we need to change it to a working one. 
+    A reason for a path to break can be changing the name of the file, a folder or moving the file. 
+
+    So in the data source settings button there is a function to browse for files, a way to solve file path breaks. 
+        Same step can be applied from source in applied steps. 
+
+    Pro Tip: Data Source parameters
+    Dinamic Data Source parameters. 
+    They help to manage complex projects which use several schemas. 
+        Manage and update connection paths in the Power Query Editor. 
+
+    There is a button manage parameters to make maybe new working spaces as a parameter with its actual folder or files. 
+        Funny enough a parameter can be used to access/establish a database connection so as an exaple a SQL connection. 
+
+    the source can be an M formula to establish a connection
+        i.e. = MySQL.Database("127.0.0.1", "database", [ReturnSingleDatabase=true])
+        server, database, can be accesed and set by clicking on source in applied steps. 
+    
+    The course guy set a parameter named: Server (especify name); to establish a connection with a specific sql server.
+        current value: server number i.e. 127.0.0.1
+    The parameter is added to the list of queries and updates the M formula so as to say Server (name of the parameter) instead of 127.0.0.1., #Database (name of the list of values of the parameter)
 
 
+    Refreshing Queries 
+    There is a button in the home tab. 
+
+    Pro tip: Click on include in report refresh of each table it is a right click on the tables of power query editor to exclude static data or lookups. 
+        This step avoids attempting to refresh data that has not changed. 
 
 
+    Importing Excel Models 
+    Sometimes a model, additional metadata on data, can be done in excel or passed to you and you can acces it in Power Bi. 
+    import > Power Query, Power pivot, Power View. 
+        Imported models retain data source connections and queries, 
+        query editing procedures and steps, 
+        table relationships, hierarchies, field settings, 
+        All calculated columns and DAX measures. 
+
+    So it was a demo I did not have the file but I saw the process of importing into excel. 
+
+    Power Query Best Practices 
+    Get organized before connecting and loading data. 
+        Define clear and intuitive query names. 
+        Organized file/folder structure. 
+    Disable report refresh for static data sources. 
+    When working with large tables, only load the data you need. 
+        Dont include innecesary data. It slows the process. 
+
+Creating a Data Model 
+    Involves normalization, fact and dimension tables, primary and foreign keys, relationship cardinality and filter flow. 
+    Also hierarchies, common schemas
+
+    Goals: 
+    Understand the basic principles of data modeling (normalization, fact & dimension tables and common schemas)
+    Create table relationships using keys and discuss cardinality 
+    Configure report filters and trace filter context as part between related tables in the model 
+    Explore Data modeling options like hierarchies, data categories and hidden fields.
+    
+    Modeling 101 
+    Independent tables is not a model. So knowing how they connect is. 
+    Interesting to explore and register the types of relationships but in beginning having the relationships allows to make aggregation processes, even without merging. 
+
+    Ok so to make visuals we go to the report view tab, make a visual such as matrix and input values out of columns of one or more tables as well as maybe the names of the products or rows just as an example. 
+
+    Database Normalization 
+    Process of organizing the tables and columns in a relational database to reduce redundancy and preserve data integrity. 
+        Eliminate redundant data. 
+        Minimize errors and anomalies. 
+        Improves processing time. 
+        simplify queries and structure the database for meaningful analysis
+
+    In a normalized base each table should serve a distinct and specific purpose only. 
+        one of product information, other of transaction records, customer attributes, store details and so on. 
+    
+    having only connected tables makes a lot of redundant data more cardinality. duplicated data. 
+    out of a transaction and product detils table you can duplicate the column product id field and separate them to have transactions so just how much of each product daily is selling and another of the details. Info can be connected but is neatly organized. 
+
+
+    Fact and dimension tables
+    fact = data, dimension = lookup 
+    dimension is usually information that can ser for filtering or grouping. 
+    Data are metrics used for summarization. 
+
+    fact (sales, orders, transactions)
+    dimension (products, customers, date, stores, )
+
+    If you know some key information then you know the rest of the data, there goes the logic and by that key you connect the table. 
+        i.e. product id then you know the name, size, weight. 
+
+    Wow. First time I saw a completely fact table, just keys and quantifiables. 
+
+    Ok in the model view. 
+        To make a connection between each table: 
+
+            Select a table>properties> key column > well define/select the column key of each. 
+
+
+    Relationships vs merged tables 
+    why not just having a big table with all the data. 
+    Redundancy, more memory and processing power compared to relational modeling. 
+
+    Model View 
+    Parts
+        Menu Ribbon
+        Model Canvas
+        Properties pane
+        view options 
+        tabs 
+
+    ways to create the connections/relationships between tables 
+        1. Click and drag 
+        2. manage relationships button in the ribbon 
+
+    manage > new > 
+        From table > to table (select tables and click on ok)
+            you can also define the type of cardinality relation but was not needed. 
+
+    and the click and drag take the second table the column of connection and drag it towards the primary key of another table and done. 
+        In my case the writing manage relationships openned in the guy of the course it didn't. 
+        I noticed you can see that table to manage the relationship from the right properties pane. And it was cool making the relationships and seeing a previous visualization gain sense out of just that connection. 
+
+
+    Managing and Editing Relationships
+    
