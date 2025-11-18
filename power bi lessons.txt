@@ -811,4 +811,94 @@ Creating a Data Model
     Pro Tip Model Layouts 
     Ok great so out of big complex models we can create partial views to see just the relations of a facts table at a time, as an example. Or returns. 
 
+    Just grab a table and it will appear in the new layout. 
+        Note that making any changes on the data in a layout will sync with the whole model 
+
+    Selecting a table and right clicking in any background space will display the add related columns button. 
+        That is a handy tool. 
+
+    I did the same with the fact Returns table but then I eliminated both due to following the course. 
+
+    Data Formats & Categories 
+    In table tools tabs. 
+
+    Adress, Date, Numbers, Categorical, 
+
+    One thing is categories so the data type and the other the format which is how data is displayed. 
+
+    Data format can be changed in the properties of model view but the author of the course
+        prefers making changes in the table view tab. 
+            One change applied was formatting to short Date the date fields in calendar, retruns and sales data tables. 
+
+    So I changed decimal amounts, defined that country and continent are specifically that all in the table tools or column tools tabs. 
+
+    Hierarchies 
+    Groups of columns that reflect multiple levels of granularity 
+
+    i.e. Geography hierarchy: Country, State, City 
+
+    Make a hierarchy 
+    In the model right click a column > create hierarchy > list the hierarchy in order. 
+        Note: Hierarchies can be made in report and table view as well. In any place where the data panel is present. 
+
+    In visualization in a matrix, you can add as the row data the complete hierarchy and it makes a dinamic nested organization.
+        Options drill up and down appear. 
+    
+    On my data I saw country and region are redundant, same data so pretty much could get it out of the hierarchy. 
+
+    Assignment: Hierarchy 
+    Good morning! 
+    Hoping you can help with a quick request. 
+    Since we'll be going a lot of time-series analysis, Ethan asked us to add a date hierarchy to the model so that users can quickly view trends at any level of granularity (year, month, day, etc.)
+
+    Please get that added before our afternoon call. Thanks! 
+    -Dana 
+
+    Key objectives 
+    1. Create a new hierarchy based on the Start of Year field, and name it "Date Hierarchy" 
+
+    2. Right-click or drag to add fields until your hierarchy contains the following: 
+        Start of Year> Start of MOnth > Start of Week > Date 
+
+    3. Add your new heirarchy to the matrix visual (on rows) and practive drilling up and down between each level of granularity. 
+
+    pretty easy. 
+    Go to model view. 
+        In calendar table > column Start of year > Create hierarchy > Take start of month, week, date and rename it. 
+            Go to report view and click on drill down and up to see the orders through time dinamically. 
+
+    Data Model recap or best practices 
+    1. Focus on building a normalized model from the start 
+    2. Organize dimension tables above data tables in your model. 
+    3. Avoid complex relationships unless necessary 
+    4. Hide fileds from report view to prevent invalid filter context 
+
+
+DAX analysis 
+    Data Analysis Expressions (DAX)
+        Adds calculated columns, measures, row & filter contex, iterators and more. 
+
+    Topics to cover 
+        DAX 101 
+        Row & filter contex 
+        Common functions 
+        iterators 
+        Columns & Measures 
+        DAX syntax 
+        Calculated Fields with Dax
+        time intelligence 
+
+    Goals 
+        Introduce DAX fundamentals. 
+        Learn when to use calculated columns and measures 
+        Understand the difference between row context and filter context and how they impact DAX fx 
+        Learn DAX formula syntax, basic operators and common functions categories (math, logical, text, date/time, filter, etc)
+        Explore nested fxs, and more complex topics like iterators and time intelligence patterns 
+
+    DAX 101 
+    Is the formula language that drives the Power BI front end. 
+    With dax you can 
+        Go beyond the capabilities of trad spreasheet formulas, with powerful and flexible fxs built to work with relational data models. 
+        Calculated columns (for filtering) and measures (for aggregation) to enhance data models
+    
     

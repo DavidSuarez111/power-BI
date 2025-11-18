@@ -1,1 +1,36 @@
 Recap of all the protips. 
+
+ Calculated column best practices
+    Table transformations and col calculations should ideally happen as close to the original data source as possible, to optimize performance and speed. 
+
+Power Query Best Practices 
+    Get organized before connecting and loading data. 
+        Define clear and intuitive query names. 
+        Organized file/folder structure. 
+    Disable report refresh for static data sources. 
+    When working with large tables, only load the data you need. 
+        Dont include innecesary data. It slows the process. 
+
+Data Model recap or best practices 
+    1. Focus on building a normalized model from the start 
+    2. Organize dimension tables above data tables in your model. 
+    3. Avoid complex relationships unless necessary 
+    4. Hide fileds from report view to prevent invalid filter context
+
+---
+Pro Tip 
+    Rolling Calendars. 
+    Based on the current data time. So it evolves.
+
+Avoid unnecessary refresh load. 
+Click on include in report refresh of each table it is a right click on the tables of power query editor to exclude static data or lookups. 
+        This step avoids attempting to refresh data that has not changed. 
+
+Model relationships 
+Try to design your models with 1 to many cardinality and in one way unless completely necessary. 
+
+Improve visualizations ease of use  
+Hide the foreign keys in fact tables to force users to filter using primary keys in dimension tables. 
+
+Model layouts 
+Form partial views out of big complex models to see just the relations of each facts table at a time. 
