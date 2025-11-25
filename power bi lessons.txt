@@ -901,4 +901,138 @@ DAX analysis
         Go beyond the capabilities of trad spreasheet formulas, with powerful and flexible fxs built to work with relational data models. 
         Calculated columns (for filtering) and measures (for aggregation) to enhance data models
     
+    Differences Between M and DAX 
+    M and DAX are two distinct functional languages used within Power BI
+        M is used in the **Power Query editor** and it is designed for extracting, transforming and loading data
+        DAX is used in the **Power BI Front-End** and is designed specifically for analysing relational data models
+            DAX considers filter context 
+
+    Calculated column
+    add new, formula based columns to tables in a model 
+    specifically to entire tables or columns not a cell. 
+        So you will see values for each row visible within tables in the Data view. 
     
+    Cal cols are excelent to get properties on the data useless for aggregation (measures are the ones that work for agg) most times
+    
+    Pro Tip: Cal cols are used for filtering and grouping data, rather than creating aggregate numerical values. 
+
+    Example: Making a cal col name Parent if children >0 Yes otherwise No. 
+    Syntax: Parent = IF('Customer Lookup'[Total Children]>0, "Yes", "No")
+        So by Parent yes or no we can filter, while
+            by Sum(OrderQuantity) as Total Quantity all values would be the same in each row and therefore cannot. 
+            It is advised not to use DAX for this. 
+
+    On either table tools in table view or column tools when selecting a column or right clicking in a column, a button appears: New Column
+    New column allows to input DAX to generate a column with a new filtering or grouping property
+
+    Total Quantity = 
+    Sum(
+    'Sales Data'[OrderQuantity]) 
+    This DAX is valid or invalid? 
+        Invalid. It generates aggregation. That is for measures. 
+
+    DAX measures 
+    DAX formulas to generate new calculated values 
+        Similarity also refer to entire table or column. 
+        Difference: cannot be seen in table view just in report view or visualization. 
+    Pro Tip: DAX measures 
+    When a single row cant be the answer use it. It is intended for aggregate values or multiple rows in a table. 
+    Use measures to create numerical, calculated values that can be analyzed in the "values"field of a report visual.
+    
+    Implicit vs Explicit Measures 
+    Implicit measures are created when you drag raw numerical fields into a report visual and manually select an aggregation mode (Sum, Average, Min, Max, Count, etc.)
+    Explicit are created when you write a DAX formula and define a new measure that can be used withing the model. 
+        Difference? Implicit only in specific visualization. Explicit anywhere in the report and can be referenced by other DAX calculations to create measure Territories
+
+    Making measures can be accesed in the home tab, modeling tab, or by right clicking a table in the data field. 
+    Steps to create a measure (one of the above) > name the measure > select the aggregation > which column > in what table. 
+
+    Quick Measures
+    Automatically create formulas based on pre-built templates or natural language promtps 
+    *Weighted averages, percent difference, time intellgence, etc. 
+
+    The tab has Calculations and suggestions. 
+    Templates and NLqueries respectively. 
+
+    Protip 
+    Quick measures can be a great learning tool for beginners or for building more complex formulas but use them with caution; mastering DAX requires a deep understanding of the underlying theory!
+
+    Recap Cal cols vs Measures 
+    Cal cols 
+        calculated based on information from each row 
+        Appends static values and stores them in the model
+        Primarily used for filtering data in reports
+
+    Measures
+        Calculated based on information from any filters in the report 
+        Does not create new data in the tables 
+        Used for aggregating values in report visuals.  
+
+     
+    Pro Tip: Dedicated Measure tables
+    It is a best practive to create a dedicated table to store your measures
+        This will help you stay organized, find measures quickly and allow you to group related measures into folders. 
+
+    Pro Tip:
+    Click the filter incon on visuals to learn about the filters currently applied to a selected visual. 
+    Always take note on the filter context that tells you about what data concludes or say. 
+
+    Step by step measure calculation 
+    Usually visuals do not have the entirety of data but rather layers. 
+    i.e. black products on the facts table or drilled to a related table. 
+
+    DAX syntax and operators 
+    Total Quantity = SUM(Transactions[quantity])
+    measure name = function name(tablename[columnname])
+
+    Pro tip: 
+    Column references use fully qualified names 
+    Measure references just use the measure name and can be called by typing an open square bracket [Measure]
+
+    DAX operators 
+    Arithmetic
+        Addition, subtraction, multiplication, division, exponent ^
+    Comparison 
+        =, >, <, >=, <=, <> not equal to. 
+    Text/Logical operator 
+        & concatenates two values to make one text string
+        && between two logical conditions,
+        || or  () ([]="")
+        IN {}
+
+    Common DAX function categories 
+    Math & STATS   
+        sum, average, max/min, divide/ count, countrows, distinctcount, iterators: sumx, averagex, maxx/minx, rankx, countx 
+    Logical 
+        if/then, if, iferror, and, or, not, switch, true, false
+    Text 
+        concatenate, combinevalues, format, left/mid/right, upper/lower, len, search/find, replace, substitute, trim
+    filter 
+        calculate, filter, all, allexcept, allselected, keepfilters, removefilters, selectedvalue
+    Table 
+        summarize, addcolumns, generateseries, distinct, values, union, intersect, topn
+    Date & Time 
+        date, datediff, yearfrac, year/month, day/hour, today/now, weekday, weeknum, networkdays, time intelligence: datesytd, datesmtd, dateadd, datesbetween
+    Relationship 
+        related, relatedtable, crossfilter, userelationship
+    
+        Actually more than 250 functions. This are the commons. 
+    
+    Basic Math & Stats functions 
+    SUM =sum()
+    Average =average()
+    Max =MAX()
+    Min same 
+    Divide =DIVIDE(Numerator, Denominator, Alternateresult)
+
+    General use of each was made making columns in measure table. 
+    We applied dinamic tables changing the organization of rows by date into categories and subcategories allowing drilling into levels and using sums and average retail price as well as other calculated informative columns. 
+
+    Counting Functions 
+    Count *excludes boolean values 
+    Counta *counts non empty cells, includes boolean values
+    Distinctcount 
+    Countrows =COUNTROWS([Table]) *the rest are pretty intuitive. 
+
+
+
