@@ -1034,5 +1034,158 @@ DAX analysis
     Distinctcount 
     Countrows =COUNTROWS([Table]) *the rest are pretty intuitive. 
 
+    Dax Assignment
+    Hey there, excited to start working with you!
+    I'll need to pull some high-level metrics from our model to share with leadership, and I could use some help with the calculations. 
+    For now, could you please create one measure to calculate the total number of distinct customers, and a second measure that we can use to calculate return rate (quantity returned/quantity sold)? Thank you! 
+    -Dianne 
+    Objectify the task 
+    1. Calculate (new measure) total of distinct customers. 
+    2. Calculate the return rate returned over sold. 
 
+    Very interesting I used the customer column of sales data that is hidden in the report view as it is related to the orders. Not in the customer lookup table. 
+    Actual solving code: 
+    Total Customers = DISTINCTCOUNT('Sales Data'[CustomerKey])
+    Return Rate = DIVIDE([Quantity Returned], [Quantity Sold], "No Sales")
 
+    Pro Tip: Measures 
+    When tiping "[]" in Dax measures will appear. 
+
+    Conditional & Logical functions 
+    IF #condition is met? = T if not then F.  IF(Logical Test, ResultifTrue, [ResultifFalse])
+    IFERROR if there is an error display something stated. IFERROR(Value, ValueifError)
+    SWITCH evaluates an expression against a list of values and returns one of multiple possible expressions. =SWITCH(Expression, Value1, Result1..., [Else]) 
+    AND if more than 1 condition can use && 
+    OR  similar can use ||. 
+
+    I used IF to make a new column named parent if column total children of customer lookup is greater than 0 then "Yes" otherwise "No" 
+
+    Switch Function 
+    If it finds a value in a scalar expression then it will match to its according result. Example in the column MonthID if it is one it will give the result January and so on. 
+    example code 
+    Price Point = 
+    SWITCH(
+    TRUE(), 
+    'Product Lookup'[ProductPrice]>500, "High", 
+    'Product Lookup'[ProductPrice]>100, "Mid Range", 
+    "Low"
+    )
+
+    Pro 
+    Switch(True) is a common DAX patter to replace multiple nested IF statements :()
+
+    Assignment on Logical functions
+    Hey there! 
+    Ethan has been working with the DS team on a customer segmentation analysis, and came back to us with a few requests. 
+
+    Could you please add some new columns in our -customer table-
+    to identify "priority" customers,
+    segment customers based on income level, and group some of the education categories? 
+
+    I've attached the logic to use, but reach out with any questions! 
+    -Dianne  
+
+    Objectives 
+    1. Define Customer priority. >100000 = Priority else Standard
+    2. Grouping variables based on income and education categories. If Eduaction Level is High School Education Category = High School, = Undergrad, = Graduate
+        Income > 150000 = "Very High", >100000 = "High", >= 50000 = "Average", "Low"
+    Customer Priority = IF('Customer Lookup'[AnnualIncome] > 100000 && 
+    'Customer Lookup'[Parent] = "Yes",
+    "Priority", "Standard"
+    )
+    The parent column addition was just for didactical purposes and was not explicitly required in the message from the assignment. 
+
+    Second code. Based on income: 
+    Income Level = 
+    IF('Customer Lookup'[AnnualIncome] >= 150000, "Very High", 
+     IF('Customer Lookup'[AnnualIncome] >= 100000, "High",
+     IF('Customer Lookup'[AnnualIncome] > 50000 = "Average", "Low")))
+
+    based on education 
+    Education Category = 
+     SWITCH(
+     'Customer Lookup'[EducationLevel], 
+     "High School", "High School", 
+    "Partial High School", "High School", 
+    "Bachelors", "Undergrad", 
+    "Partial College", "Undergrad", 
+    "Graduate Degree", "Graduate"
+     )
+     exploring the distinct string values can be a good idea to include all typos and avoid errors or false results. 
+
+     Text Functions 
+     LEN =len(text)
+     concatenate =concatenate(text1, text2)
+     UPPER/LOWER =(text)
+     LEFT/RIGHT/MID =(Text, [NumChars]), =mid(Text, StartPosition, NumChars)
+     SUBSTITUTE replaces an instance of existing text with new text in a string =substitute(text, oldtext, newtext, [instancenumber])
+     SEARCH returns a position where a specified string or character is found. =search(findtext, withintext, [startposition], [notfoundvalue])
+
+    Assignment: Text 
+    Good Morning 
+    Hoping you can help with a couple quick updates to the model: 
+    1) Ethan wants to make the month abbreviations ALL CAPS to make them more readable in our reports 
+    2) The product team asked us to break out the SKU category into its own field, which we can define as any characters before the first hypen ("-") in the ProductSKU col. 
+    Thanks, reahc out with any questions! 
+
+    Objectives 
+    1 Month Abbreviations in ALL CAPS 
+    2 sku category * before "-" of ProductSKU column 
+
+    To solve in the DAX just place UPPER function outside of LEFT. 
+    The second part to extract the value i used left and took the position -1 or before the delimiter
+
+    SKU Category = 
+    LEFT('Product Lookup'[ProductSKU], SEARCH(
+       "-", 'Product Lookup'[ProductSKU]
+    )-1)
+
+    Basic Date & Time Functions 
+    Today/Now 
+    Day/Month/Year
+    Hour/Minute/Second
+    Weekday/weeknum sunday is the number 1 of 7 days. Not monday. You can add the number 2 to correct to monday as a start. 
+    EOMONTH returns the date of the last day of the month with an extra argument of how many +/- months. 
+    DATEDIFF
+    
+    Assignment Date & Time 
+    Hey there, super easy one for you. 
+    The customer segmentation project got me wondering if there are nay interesting patterns or insights based on customer age. 
+    Could you please add a field in our customer table to extract only the year from the birthdate field? 
+    -Dianne 
+
+    Joining Data with
+        RELATED
+            Returns related values in each row of a table based on relationships with other tables 
+            syntax =RELATED(ColumnName)
+    
+    Related works like a VLOOKUP function in Excel 
+        - it uses the relationship between tables (defined by primary and foreign keys)
+            to pull values from one table into a new column of another. 
+    Since this function requires row context, it can only be used as a calculated column or as a part of an iterator function
+    that cycles through all rows in a table (Filter, SUMX, MAXX, etc)
+        in excel it takes extra steps to define the relationships. 
+    Retail price and revenue were calculated 
+    
+    Calculate
+    Evaluates an expression in a context that is modified by filters. 
+    =CALCULATE(Expression, [filter1], [filter2]...)
+
+    Protip 
+    Think of cALCULATE as a filter modifier; it allows you to overrule existing report filters and "force" new filter context
+        ok so it is as a go fish calculation. Interesting. 
+
+    Example 
+    Bulk Orders =
+    CALCULATE(
+       [Total Orders],
+       'Sales Data'[OrderQuantity]>1
+    )
+    as a measure. 
+    Other example 
+    Red Sales = CALCULATE ([Quantity Sold], 'Product Lookup'[Product Color] = "Red")
+    Generates a value of sold that are just red. 
+    With calculate the context overrides previous so if on a matrix you are seing all colors but select the red sales only the red will display in every row, not the black or else. A repeating value. 
+    Cannot be black and red at the same time as it is a filter context difference. 
+
+    

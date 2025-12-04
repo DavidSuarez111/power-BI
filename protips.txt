@@ -34,3 +34,47 @@ Hide the foreign keys in fact tables to force users to filter using primary keys
 
 Model layouts 
 Form partial views out of big complex models to see just the relations of each facts table at a time. 
+
+Calculated Columns of DAX
+Pro Tip: Cal cols are used for filtering and grouping data, rather than creating aggregate numerical values. 
+
+Pro Tip: DAX measures 
+When a single row cant be the answer use it. It is intended for aggregate values or multiple rows in a table. 
+
+
+Protip 
+Quick measures can be a great learning tool for beginners or for building more complex formulas but use them with caution; mastering DAX requires a deep understanding of the underlying theory!
+
+
+Pro Tip: Dedicated Measure tables
+It is a best practive to create a dedicated table to store your measures
+This will help you stay organized, find measures quickly and allow you to group related measures into folders. 
+
+Create a Dedicated Measure table 
+Will appear in the model and is created by enter data into power query button. Name the table and start making the measures (enter data in report view). 
+    Can be created using DAX directly in the model (but will not be visible in the model)
+        The one created with DAX has like a calculator icon. 
+        The DAX table was eliminated. 
+
+Filter Context 
+Measures are evaluated based on filter context. THey recalculate whenever the fields or filter around them cahnge. 
+
+Pro Tip:
+Click the filter incon on visuals to learn about the filters currently applied to a selected visual. 
+Always take note on the filter context that tells you about what data concludes or say. 
+
+Filter levels 
+Can be on one page, on several pages, 
+
+Pro Tip: Measures 
+When tiping "[]" in Dax measures will appear. 
+
+
+Pro 
+Switch(True) is a common DAX patter to replace multiple nested IF statements :()
+
+
+Protip 
+Think of cALCULATE as a filter modifier; it allows you to overrule existing report filters and "force" new filter context
+    ok so it is as a go fish calculation. Interesting. 
+
