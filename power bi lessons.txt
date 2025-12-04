@@ -1188,4 +1188,48 @@ DAX analysis
     With calculate the context overrides previous so if on a matrix you are seing all colors but select the red sales only the red will display in every row, not the black or else. A repeating value. 
     Cannot be black and red at the same time as it is a filter context difference. 
 
+    DAX measure totals 
+    Measure totals may seem incorrect or inconsistent depending on how they are calculated, 
+    because they dont simply add up the visible values in the report. 
+
+    Distinctcount can be counted in several categories at the same time but just once on the total. Like a venn diagram an order may have 2 products therefore qualifying for 2 categories at the same time. 
+
+    Assignment Calculate 
+    Hey there, 
+    Apparently George (our Product VP) has been speaking with some of the store managers, and they ve raised concerns about the number of bike returns they are seeing recently. 
+    Can you please create a measure to calcultate total returns for bikes specifically, and let me know what you see? 
+    Volume alone wont tell the full story, so lets calculate the return rate for bikes as well, and see how its trending before responding to George. 
+    Need this ASAP -thank you! 
+    -Dianne 
+
+    Objectives 
+    1. Calculate return rate for bikes. So returned/sold of bikes saved as Bike Returns.
+    2. create a matrix to show Bike Returns by start of Month. What do you notice about the volume of bike returns over time? 
+    3. Create a new measure named Bike Sales to calculate the total quantity of bikes sold, and add it to the matrix. What do you notice? 
+    4. Create a new measure named Bike Return Rate using either Calculate or Divide, and add it to the matrix 
+    5. How would you respond to the Product VP's concerns about rising bike returns? 
+    Solution
+
+    I made a Total returns by adding the returned quantities then made the following DAX to calculate the ones that are from bikes 
+    Bike Returns = 
+    CALCULATE(
+       [Total Returns], 
+       'Product Category Lookup'[CategoryName] = "Bikes"
+    )
+
+    Bike Sales = 
+     CALCULATE(
+        [Quantity Sold], 
+        'Product Category Lookup'[CategoryName] = "Bikes"
+     )
+    Bike Return Rate = 
+    CALCULATE(
+       [Return Rate], 
+       'Product Category Lookup'[CategoryName] = "Bikes"
+    )
+     Done. 
+
+    The All function 
+    Returns all rows in a table, or all values in a column, ignoring any filters that have been applied. 
+    ALL(Table or Column, [Col2],...)
     
