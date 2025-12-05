@@ -1232,4 +1232,123 @@ DAX analysis
     The All function 
     Returns all rows in a table, or all values in a column, ignoring any filters that have been applied. 
     ALL(Table or Column, [Col2],...)
+
+    Pro Tip 
+    All function removes filter context. THis is often used in % of Total calculations, when the denominator needs to remain fixed regardless of filter context. 
+
+    Example 
+    All Orders =
+    CALCULATE(
+       [Total Orders],
+       ALL(
+           'Sales Data'
+    )
+
+    Assignment calculate & all
+    Thanks for the quick turnaroun on that bike return analysis-crisis averted! 
+    That got me thinking about how we could start analysing the return data in our reports. 
+    Could you please help me create two new measures one to calculate all returns, and another that divides total returns by all returns. 
+    That should allow us to see the % of returns by different products and product categories. 
+
+    Objectives 
+    1. Create the measure All returns
+    2. Create % of All returns (Total returns by all returns)
+    3. Matrix to show % of All Returns by product Category Name 
+    Which category accounts for the largest percentage of returns? The smallest? 
+
+    Solution 
+    All Returns = 
+     CALCULATE(
+        [Total Returns], 
+        ALL(
+            'Returns Data'
+        )
+     )
+    
+    % of All Returns = 
+    DIVIDE(
+       [Total Returns], 
+       [All Returns]
+    )
+
+    Then make a matrix on rows categories and on columns % of all returns. Accesories account for 62%. Clothing for 14% 
+    Filter 
+    Returns a table that represents a subset of another table or expression. 
+
+    =Filter(Table, FilterExpression )
+
+    Pro Tip: 
+    Since Filter iterates through each row in a table, it can be slow and computationally expensive; only use Filter if a simple CALCULATE function wont get the job done. 
+
+    Iterator Functions 
+        Also called X functions
+            loop through the same expression on each row of a table, then apply some sort of aggregation to the results (SUM, MAX, etc)
+
+    Pro Tip 
+    Iterator functions add a temporary new column to a table, calculate a value in each row based on a given expression, then aggregate the values within that temporary column (similar tu SUMPRODUCT in Excel)
+
+    We are trying to transform calculated columns into measures to avoid redundancy. 
+    I used SUMX and used original columns to calculate them passing them to the measures table. 
+
+    Assignment Iterators 
+    Hey, 
+    Ethan asked for a quick analysis of company profit over the past few years, but im struggling with the calculation 
+
+    We need a measure that multiplies order quantity by product cost
+    Id like to do it without adding redundant columns to our Sales table. 
+    Could you take a stab at this please? 
+    -Dianne 
+
+    objectives 
+    1. Measure. Total Cost.
+        multiplies the order quantitities in the Sales Data table by the product cost in the product lookup table. Then calculates the sum 
+    2. Measure. Total Profit (revenue minus cost)
+    3. Create a matrix to show Total Profit by Year. HOw much profit has AdventureWorks earned so far in 2022? 
+
+    The formulas of each measure. And then the matrix of year and total profit. 
+    1. 
+        Total Cost = 
+    SUMX(
+    'Sales Data', 
+    'Sales Data'[OrderQuantity] * 
+    RELATED('Product Lookup'[ProductCost]))
+
+    2. So just total revenue - cost 
+    3. assemble the matrix by dragging the values Years to rows and Total profit to columns. 
+
+    Time intelligence
+    Performance To-Date =CALCULATE(Measure, DATESYTD(Calendar[Date]))
+    Previous Period =CALCULATE(Measure, DATEADD(Calendar[Date], -1, MONTH))
+    Running Total =CALCULATE(Measure, DATESINPERIOD(Calendar[Date], -10, DAY))
+
+    Pro tip
+    To calculate a moving average, use the running total calculation above and divide by the number of intervals. 
+
+    Assignment
+    The leadership team has been asking a lot of questions about month-over-month and year-over-year comparisons, and I've been pulling the numbers pretty manually. 
+    Could you please add the following list of measures, to make these metrics easier to track and share with stakeholders? 
+    Thank you!
+    -Dianne 
+
+    Objectives 
+    Add the following measures to the model: 
+    1. Previous Month Returns 
+    2. Previous Month Orders 
+    3. Previous MOnth Profit 
+    4. Order Target (10% increase over previous month)
+    5. Profit Target (10% increase over previous month)
+    6. 90-day Rolling Profit
+
+    I made a lot of measures and visuals with a cool slicer that modifies the information. 
+
+    Know when to use calculated columns vs. measures
+        use cal cols for filtering, and measures for aggregating values 
+    Use explicit measures, even for simple calculations 
+        explicit measures can be referenced anywhere, and nested within other measures 
+    Use fully-qualified column references in measures.
+        This makes your DAX more readable, and differentiates col references from measure references 
+    Move column calculations "upstream" when possible 
+        Adding calculated cols at the source or in Power Query improves report speed efficiency 
+    MInimize the use of "expensive" iterator functions 
+        Use iterators with caution, especially if you are working with large tables or complex models.
     

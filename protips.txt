@@ -78,3 +78,15 @@ Protip
 Think of cALCULATE as a filter modifier; it allows you to overrule existing report filters and "force" new filter context
     ok so it is as a go fish calculation. Interesting. 
 
+
+Pro Tip 
+All function removes filter context. THis is often used in % of Total calculations, when the denominator needs to remain fixed regardless of filter context. 
+
+Pro Tip: 
+Since Filter iterates through each row in a table, it can be slow and computationally expensive; only use Filter if a simple CALCULATE function wont get the job done. 
+
+Pro Tip 
+Iterator functions add a temporary new column to a table, calculate a value in each row based on a given expression, then aggregate the values within that temporary column (similar tu SUMPRODUCT in Excel)
+
+Pro tip
+    To calculate a moving average, use the running total calculation above and divide by the number of intervals. 
