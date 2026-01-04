@@ -1352,3 +1352,96 @@ DAX analysis
     MInimize the use of "expensive" iterator functions 
         Use iterators with caution, especially if you are working with large tables or complex models.
     
+    Visualizations
+
+    Build dynamic interactive reports 
+
+    Best practices, explore features like bookmarks, drillthrough filters, parameters, tooltips, 
+
+    Topics we ll cover
+        Data Viz Best Practicas
+        Bookmarks
+        User roles 
+        custom tooltips
+        Formatting & Filtering 
+        Report Interactions 
+        Parameters 
+        Mobile Layouts 
+
+    Goals for this section: 
+    Review frameworks and best practives for visu data and designing effective reports and dashboards 
+    Explore tools and techniques for inserting, formatting and filtering visuals in the Power BI Report view 
+    Add interactivity using tools like bookmarks, slicer panels, parameters, tooltips, and report navigation
+    Learn how to configure row-level security with user roles 
+    Optimize reports for mobile viewing using custom layouts 
+
+    3 Key Questions
+    1. What type of data are you working with? 
+        geospatial, time-series, hierarchical, financial, categorical, funnel, survey, textual
+    2. What do you want to communicate? 
+        Comparison, composition, relationship, distribution 
+    3. Who is the end user and what do they need? 
+        Analyst, manager, executive, general public 
+    End user dictates how the visuals are designed. 
+
+    1. 
+    Type of data generally determines which type of visual will best represent it. 
+        geospatial - maps 
+        time series - line 
+        tree maps - hierarchical data 
+
+    2. 
+    comparison - column chart, clustered column, data table, heat map, radar chart, line chart, area chart *these last two for time series 
+        compare values across time or categories
+    composition - stacked bar, column chart, pie/donut, stacked area ts, waterfall chart (gains/losses), funnel chart (stages), tree map/sunburst (hierarchies)
+        break down the component parts of a whole
+    distribution - histogram, density plot, box and whisker, scatter plot, data table/heat map, map/choropleth (distribution)
+        show the freq of values within a series 
+    relationship - scatter plot, bubble chart, data table/heat map, correlation matrix
+        show correlation between multiple variables
+
+    3. 
+    Analyst 
+        Granular level to get to the root cause analysis. 
+            Understand exactly 
+    Manager 
+        Summarized data, clear, actionable insights to operate the business 
+            common charts & graphs, some detail only when it supports an insight 
+    Executive 
+        High level, crystal clear KPIs to track business health and topline performance at a glance. 
+            KPI cards or simple charts, 
+            minimal detail, unless it adds critical context to KPIs
+
+    Dashboards design 
+    Dashboards are analytics tools designed to consolidate data from multiple sources,
+        track key metrics at a glance, and facilitate data-driven storytelling and decision making. 
+            single centralized user centered tool 
+    Product data, gross revenue, transactional records, customer data (CRM)
+
+    Design framework
+    1. Define the purpose 
+    2. Choose the right metrics 
+    3. Present the data effectively 
+    4. Eliminate clutter & noise 
+    5. Use layout to focus attention 
+    6. Tell a clear story 
+
+    a well designed dashboard should serve a distinct purpose for a distinct audience,
+        use clear and effective metrics and visuals
+            and provide a simple, intuitive user experience. 
+    
+    key Questions
+    who are the end users? 
+        what are the key business goals and objectives? 
+            what are the most important questions they need answers to? 
+                how can i present information as clearly as possible? 
+
+    "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away" 
+
+     Sketching the dashboard design 
+     I inputed a logo 
+     Made the spaces for the kpi with insert rounded rectangle 
+     Then placed a vertical rectangle in all pages to set as a menu. 
+
+     I have 4 main pages exec dashboard, map, product detail, customer detail. 
+     
