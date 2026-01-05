@@ -1445,3 +1445,88 @@ DAX analysis
 
      I have 4 main pages exec dashboard, map, product detail, customer detail. 
      
+     In the exec dashboard I applied a lesson called naming and grouping consisting of seeing in the selection pane and changing the name of my shapes to KPIs after grouping them and the Navigation as well as the logo. 
+
+     Then I added formatting to a card blue #20E2D7 mayus 1 decimal and copied paste plus replaced with each different KPI renevue, profit, orders and return rate. Funny enough the course does not have the same display of where things are but i could do all of the steps. 
+
+     Assignment: Cards 
+     Hey there! 
+     We've kicked off the visualization work for our Power BI dashboard, and I'm hoping you can help. 
+     For now I'd love for you to focus on building out the Customer Detail report. Can you start by adding some KPIs to show total customers and revenue per customer. 
+     -Vic 
+
+     Objectives 
+     Insert a card in the Customer Detail report page to show Total Customers, and rename the field "UNIQUE CUSTOMERS" 
+
+     Add a background shape and match the formatting of the cards in the Exec Dashboard tab 
+
+     Copy and paste to create a second card showing Average Revenue per Customer, and rename the field "REVENUE PER CUSTOMER"
+
+     Building and Formatting Charts 
+     Build menu allows you to change the visual type, auto suggest visuals, and add data to customize chart components (x axis, y, legend, tooltips, etc)
+        contextual menu *relevant to selected visual 
+     you can select a visual type or drag a data type and let the program suggest.
+
+     on object formatting by double clicking the chart object or right click > format, which allows you to select and edit individual chart elements. 
+
+     Trend lines and Forecasts 
+     in my version is in further analyses. After setting on the trend lines and forecast the confidence interval and the transparency was adjusted. 
+
+     Assignment: Line Charts 
+     Nice work on those cards! 
+     Next up let's add a weekly line chart to show how our customer base is trending over time. 
+
+     Please add a zoom bar to make it interactive, and format the tooltips to match the line chart in the Exec Dashboard. 
+     Thanks!
+     -Vic 
+
+     Objectives 
+     1. Add a line chart to the Customer Detail report showing Total Customers by week 
+
+     2. Add a treend line and a zoom slider to the x axis 
+
+     3. Enable tooltips, and format to match line chart in the Exec Dash board tab 
+
+     KPI cards 
+     Value revenue 
+     Trend months 
+     target previous month revenue 
+     Direction higher is good which makes it green, should set to lower is good if its something like returns 
+        nevermind set to gray due to higher experience, to avoid colorblindness conflicts or calling too much attention, apparently it was just relevant to see if there where loss of revenue so red stayed. 
+    
+     format to 30 pts, millions 2 decimals. 
+
+     Bar and donuts charts
+     Selected the donut visual. 
+     Then added category name in the legend, total orders in the values
+     it was looking great but then it certainly is true that bars are still more mainstream in conveying numbers and so the course led me to select bars. 
+        Then i formatted the bars to gray, changed the title to orders by category, placed the labels outside the bars and removed the x and y labels and values as well as activated and modified the tooltips to white and blue color.
+
+    filtering options 
+    This is the main set appart feature that makes power bi stand from excel.
+        It has 3 levels of filters 
+            1. Visual level filters. apply to specific visuals 
+            2. Page level filters apply to all visuals on the report page 
+            3. Report level filters apply to all visuals across all report pages. 
+                theres a small 4th one the drillthrough filter 
+    filter types or filter logic
+        all sorts of options.
+            basic options with checkboxes 
+            top n options 
+            advanced conditional logic (text or value based)
+     
+     Assignment: Donut Charts 
+     Good morning! 
+     Just got a note from Ethan to see if we can build some demographic info into the customer report. 
+
+     Lets add a couple donut charts to show the composition of customers by income level and occupation. We ll want to limit to just a few segments (maybe 3? ) and do some formatting to match the rest of the dashboard. 
+     Thank you, you rock! 
+     -Vic 
+
+     Objectives 
+     1. Add a donut chart to the Customer Detail report showing Total Orders by Income Level 
+     2. Add a chart title, turn off the legend, and update the data labels toshow the category and value (font size 8,1 decimal place) 
+     3. Update the colors of the slices to match the screenshot in the solution preview 
+     4. Add a visual-level filter to exclude customers with a "Very High" income level 
+     5. Copy the chart to show Total Orders by Occupation, and add a visual-level filter to display the three occupations with the most orders (bonus points if you use a Top N filter!) 
+     
