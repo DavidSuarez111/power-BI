@@ -1529,4 +1529,11 @@ DAX analysis
      3. Update the colors of the slices to match the screenshot in the solution preview 
      4. Add a visual-level filter to exclude customers with a "Very High" income level 
      5. Copy the chart to show Total Orders by Occupation, and add a visual-level filter to display the three occupations with the most orders (bonus points if you use a Top N filter!) 
-     
+
+     Added a donut bar with filters on that visual of income levels and total orders
+        then removed the legend, changed the title to orders by income level centered, 
+            defined the labels to include the category, changed the colors of the slices, 
+                and applied a segregating of very high segment at the filters level on the visual. *more than 3 slices is considered cluttered. 
+    
+    Table and matrix visuals 
+    
