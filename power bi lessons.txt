@@ -1662,4 +1662,113 @@ DAX analysis
     Thanks! 
     -Vic 
 
+    Objectives 
+    1. In the customer detail report, update the X-axxis of the line chart to pull in Date Hierarchy 
+    2. Use the chart header to drill up and drill down to explroe trends at each level of granularity 
+    3. Test drill mode to change the granularity by selecting individual data points in the chart
+        Why do some weeks look very low? 
+    4. Turn off drill mode and show the chart at a weekly level of granularity by default 
+
+    Drill through filters 
+    Allow users to navigate to a specific report page, prefiltered on the item selected 
+        Here we ve created a Product Detail page, set the type to Drillthrough, and configured drill through from Product Name 
+            Now users can right click any instance of product name to navigate straight to the Product Detail reprot filtered on that product. 
+    
+    Allows to tie pages together. 
+    Using drill through based on product name a product list slicer and a back button were eliminated and then used the tool.
+        General information is displayed but we can go to exec dashboard click on a product drill through  and now the product detail is populated with information to the product level. 
+    
+    Editing Report Interactions
+    Customize how filters applied to one visual impact other visuals on the page 
+        cross filter. Include filter, highlight, none 
+    
+    Edit interactions is in the format tab, it is a button. 
+    THe month revenue should not change based on data points so the cross reference was turned to none. 
+
+    Cross filtering and top N may interact badly setting space for trade offs interactivity or filter quality. You get to choose. 
+
+    Assignment: Report Interactions 
+    Hey there, 
+    I was playing the the customer report this morning and noticed some odd visual interactions. 
+    For example, selecting a specific customer shouldn't filter the line chart, and proabbly shouldn't filter the donut charts either. 
+    Could you please take a pass through the report interactions and update any that seem off? 
+    THanks! 
+    -Vic 
+
+    Objectives 
+    1. On the Customer Detail tab, edit the report interactions based on the following logic: 
+        *when a filter is applied to the line chart, the donut charts shouldfilter (not highlight)
+        *when a fitler is applied to the table, the line chart and donuts should not filter 
+        *THe slicer should filter all visuals on the report page 
+    
+    Adding Bookmarks 
+    Then capture the current satate of a page, and allow users to return to that state using report actions. 
+        Bookmarks are used for clearing filters, highlighting specific insights, navigating reports, etc. 
+    
+    Goal: To make a simple way to return to the default unfiltered exec dashboard. 
+        Added a bookmark to an unfiltered state. 
+            Assigned the bookmark state to a button
+                Added some style such as the cool blue on hover and white on default state. 
+                    Ctrl click triggers the effect of removing filters. 
+
+    Assignment
+    Hey, 
+    Now that you're getting pretty familiar with our customer data, are you noticing any interesting insights or trends that might be worth explicitly calling out in the report? 
+    This could be a great way for us to use bookmarks to draw attention to some specific stories in the dashboard. While we're at it, let's add another one to clear all filters from the page. 
+    Let me know what you think! 
+    -Vic 
+
+    Objectives 
+    1. Explore the Customer Detail report by adjusting filters until you find an interesting inshight or trend 
+        *Anything you choose
+    2. Add a new bookmark to capture the current state of the report, name it: "Customer Insight" 
+    3. Insert an Information button and add text to the button style to summarize what you've found 
+    4. Assign a bookamr action to the button, and link to the Customer Insight bookmark you created 
+    5. Create a second bookmark named "Clear all Customer Filters" which returns the page to an unfiltered state, and link it to a reset button. 
+    6. Test both bookamrks using CTRL-click 
+
+    Custom Navigation Buttons 
+    It is about selecting icons that will help to navigate each report page. 
+
+    Pro tip: Slicer Panels 
+
+    Numeric Range Parameters
+    Parameters allow you to create variables which can be referenced in measures and controlled via slicers. 
+
+    There is also Fieds parameters 
+        Both aim to add some interactivity. Lets see! 
+
+    In the back parameter generates two measures. What you get to see is the interactive fields to place the input or description. 
+        2 measures: generateseries(-1, 1, 0.1), Selectedvalue(Parameter[Parameter], 0)
+            this for numeric range 
+                so literally it generates a new table. ok. 
+    A parameter example: Price Adjustmen with a slicer. Now an additional line in the chart describes how it would affect the profit. 
+
+    A parameter was made. A slicer appeared but moving it still is not tied to any reflected change on measures or graphs. Lets change that. 
+        To pass to connect the slicer value adjusted metrics should be made. Measures such as adjusted profit. 
+
+    Adjusted Price, Adjusted Revenue and Profit measures were made. 
+        Now lets visualize. 
+            From area chart to line, add the Adjusted Profit new line and after formatting when changing the slicer a change in the line is also reflected.
+
+        Great for what if scenarios or tests. 
+
+    Fields parameters. 
+         MOdeling > Fields > Select your Metrics > format to be single selection and size, font. > still not connected. Lets connect it! 
+            In the graph the metric of the generated table is input into y axis and now it is connected. Time to format it to fit the dress code. Each slicer category was formatted in the graph to set to gray or red depending on the nature of the measure so return and "" rate were colored red. 
+
+    Assignment: FIelds Parameters
+    Good news and bad news... 
+    The good news is that Chad, Thad and Vlad LOVE the drill options in the line chart -nice work! 
+    The bad news is that now they can't align on what's the best metric to show. Chad likes seeing total custoemrs but Vlad is pushing for revenue per customer. 
+    What do you think we should do? 
+    -Vic 
+
+    Objectives 
+    1. Add a new Fields Parameter named "Customer Metric Selection" which includes TOtal Customers and Average Revenue per CUstomer. 
+    2. Add the parameter as a slicer to the CUstomer Detail report, change the clicer style to Tile, turn off the header, update to single select, and resize to create a horizontal layout. 
+    3. Select the DAX measure automatically created, and update the thext from "Average Revenue per Customer" to "Revenue per Custoemr" 
+    4. Update the line chart Y-Axis to use the Custoemr Metric Selection parameter, remove the chart titel, and update the line colors to match the solution preview. 
+
+    Pro tip Custom Tool tips
     
