@@ -1536,4 +1536,130 @@ DAX analysis
                 and applied a segregating of very high segment at the filters level on the visual. *more than 3 slices is considered cluttered. 
     
     Table and matrix visuals 
+
+        Table is less dynamic 
+
+        Matrix allows for pivoting usually requires more fields of values or ordering.
+
+        Definitely go for a little bit of formatting such as changing the style of the headers and removing the layout to none. 
+    Conditional Formatting 
+        Dinamically format table or matrix visuals based on cell values 
+
+        Format pane, under Cell elements 
+
+        Options include backgroundcolor, font color, data bars, icons, or web url. 
+
+        Top N visual filter
+
+    Assignment
+        Tables 
+    Hey there, this custoemr report is really coming together! 
+
+    Since the management team needs a way to dentify high-value customer, lets add a table 
+    to our report showing customer keys, full names, orders and revenue. 
+
+    Proabbly makes sense to add some conditional formatting and limit to the top 100 customers for now. 
+
+    Thanks! 
+    -Vic 
+
+    Key objectives
+    1. Add a table to the Customer Detail report to show Customer Key, Full name, Total Orders *as Orders*, and Total Revenue * as Revenue
+    2. Apply condiitonal formatting to add light gray data bars to the orders column and a white > blue color scale to the revenue column 
+    3. Add a visual-level filter (Top N) to show the 100 custoemr with the most orders, and add a chart title (Top 100 Customers)
+    4. Sort the table descending by orders
+
+    Top N text Cards 
+    Assignment 
+    Hey, 
+    Ethan is loving the customer report so far - great job! 
+    He mentioned that hed like to highlight top custoemrs based on revenue as well, so I'm thinking we could add some text cards to show the top customer name, along with total revenue and the number of orders placed. 
+
+    We'll be offering some coupons based on how much customers have spent in the past, so accuracy is critical here! 
+    -Vic 
+
+    Objectives 
+    1. Add a card to the Customer Detail report to show Full Name 
+    2. Add a visual-level filter (Top N) to show the top customer (FUll Name) in terms of Total Revenue
+        What do you notice when you filter the report for low income customers? 
+        (Hint check your value against the table)
+        How could you modify the TOp N filter to correct this? 
+    3. Copy and paste the card (x2) to show Total Orders and Total Revenue for the top customer 
+    4. Add text boxes for titles and adjsut formatting to match the solution preview. 
+
+    Map Visuals 
+    powered by bing (require internet)
+        Tips for creating accurate maps 
+        1. Assign categories to geospatial Fields
+        2. Add multiple location fields 
+        3. Use latitude/longitude when possible
+
+    may require a tenent of the data to give access to maps to use them in BI. 
+
+    where are our adventure works orders coming from 
+        broken down to the country level
+
+    Slicers 
+    Visual filters which affect all other visuals on a report page (by default)
+        formats: lists, dropdowns, tiles, ranges, and more 
+
+    categorical/text 
+        level, tile, dropdowns. 
+
+    Dates 
+        between, relative date, after/before. 
+    Numeric 
+        single value, less than or equal, etc. 
+
+    Note/Pro tip 
+    There is a dedicated button to apply/clear all slicers. Gr8 for resetting when there are more than 1 slicer. 
+
+
+    Assignment: Slicers 
+    Hey there, quick request when you get a sec...
+    Could you please add a slicer to the customer report, so that users can filter the entire page by year? 
+    No preference for which specific type of clicer you use, as long as managers can filter customers for a specific year or across multiple years. 
+    Thanks! 
+    -Vic 
+
+    Objectives
+    1. Add a slicer to filter the Customer Detail report page by Year 
+    2. Add a visual-level filter to exclude blanks 
+    3. Choose any slicer style that allows users to filter individual years or across multiple years. 
+
+    Pro tip: Hasonevalue 
+    Apparently a slicer with one year selected having ties in revenue adds up and select the first name by alphabetical order. 
+        Basically making a super user (fake without the context).
+
+    Gauge Charts 
+    It is going to be used to show the composition of the product. 
+        I started by adding a slicer with the product names. 
+            This way when i select a box only the details for that product will be checked. 
+
+        Next inserting the gauge chart. 
+            Then applied a Top N filter 1 with start of month as the filter and value to be filtered with option latest to see just the latest month orders. 
+                Then place the order target measure to see how it compares with the actual results. And format it setting sizes, centered labels, dark gray blue font. 
+            
+            Conditional formatting based on if the target was met. 
+                Made variables with < 0 = red as numbers would be negative relative to expected target. Dark gray otherwise. 
+                Now values appear in red if below target. 
+
+    Area Charts 
+    I copied a line chart to recycle some formatting and then selected the area chart. 
+        Then changed the time reference points to start of week and duplicated the graph to make one dedicated to weekly profit and the other to weekly returns colored in red due to the negative nature of returns. 
+
+    Drill up and Drill down
+    Allows to switch between different levels of granularity 
+        Example drill up from weekly to monthly or down to daily. 
+            facilitates not making several graphics. 
+
+    Can be used in location using hierarchies to create interactive map visuals. 
+
+    Assignment drill down 
+    Hey again, just got some feedback from the managers about our customer report. 
+    Chad loves the weekly tranding chart, but Thad wants to see the data by day and Vlad was hoping for an annual breakdown. 
+    Instead of building multiple versions of the same line chart, could you please make it interactive so that Chad, Thad and Vlad get the views they want?
+    Thanks! 
+    -Vic 
+
     
