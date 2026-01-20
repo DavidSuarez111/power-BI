@@ -1833,4 +1833,12 @@ DAX analysis
     allow users to explore and visualize data usiing intuitive, natural language prompts. 
         Q&A are only as useful as the data model behind them, and tipycally require significant training to be effective. 
     
+    Can insert synonims, example questiohns, actual prompts, suggested questions 
+        Understands natural language. Can dissect information fast by asking questions. 
+
+    Decomposition Trees
+    Allows you to visualize how data is distributed across multiple dimensions 
+
+    Key Influencer visual
+    helps you understand the factors that drive specific metrics or outcomes. 
     
