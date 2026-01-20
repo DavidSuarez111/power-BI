@@ -1822,8 +1822,7 @@ DAX analysis
     to see anomalies we have to drop the multiple x axis in the line chart to have lets say just months instead of the hierarchy. 
         A band appears having new values expected, min and max. And can be adjusted from formatting pane. 
 
-    find anomalies respond to filter context so even if nothing jumps at first when changing aspects it will. 
-        there is a sensitivity field which can increase or reduce the likelyhood of finding anomalies, increases or decreases the band around data
+    find anomalies activity field which can increase or reduce the likelyhood of finding anomalies, increases or decreases the band around data
             you can even add new visuals generated to explain the anomalies, they are automatically generated. 
 
     Smart Narratives 
@@ -1841,4 +1840,38 @@ DAX analysis
 
     Key Influencer visual
     helps you understand the factors that drive specific metrics or outcomes. 
-    
+
+    Power Bi optimization Tools 
+    Optimize Ribbon, Pause Visuals, Optimization Presets, Apply all Slicers, Perfromance Analyzer, External tools. 
+
+    Goals for this section
+    Explore the optimize ribbon tools, features, and use cases 
+    understand how and when pausing visuals can aid in report development and creation 
+    Use Performance Analyzer to measure and compare the imapct of report elements on speed and performance 
+    Explore external tools that can aid in report development, learning and optimization. 
+
+    Optimize Ribbon 
+
+    Pause Visuals 
+    Stops queries from running and is used when you dont want to immediately apply additions or changes made to a report page or visual. 
+
+    Optimization presets 
+    can modify for query reduction (reduces cross highlighting and filtering) and interactivity. 
+
+    Applying all slicers 
+    A button to apply or remove all slicers at once. 
+
+    Performance Analyzer 
+    Measures how much resources are spent to load each action or process. 
+    can be exported as a json file. 
+
+    External tools 
+    Allows quick access to third patry built tools that are locally installed on your computer. 
+        Bravo, Dax studio, tabular editor. 
+    Can be of 3 categories: 
+        semantic modeling
+            dax studio, alm toolkit, tabular editor, bravo
+        Data analysis 
+            python, excel, power bi report builder, 
+        Miscellaneous
+            dax guide, power bi tips, pbi tips tutorials. 
