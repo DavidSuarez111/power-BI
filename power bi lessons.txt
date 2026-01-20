@@ -1771,4 +1771,66 @@ DAX analysis
     4. Update the line chart Y-Axis to use the Custoemr Metric Selection parameter, remove the chart titel, and update the line colors to match the solution preview. 
 
     Pro tip Custom Tool tips
+    To make a custom display of values appear on another graph. 
+
+    Importing Custom Visuals 
+        Custom Visuals 
+            VIA AppSource. 
+                select one of interest and its added to be used. 
+    
+    Managing and Viewing Roles 
+    Name them
+        generate rules. 
+            Apply them although this is in service. 
+    
+    Mobile Layout 
+    Drag each of the visuals into place. 
+
+    Publishing to Power BI Service 
+    Configure gateways, collaborate, publish. 
+    Home > Publish > 
+        publishes without the data just the visuals. 
+
+    Data Visualization Best Practices 
+    Ask yourself the three key questions. 
+        what type of data are you visualizing, what are you communicating, and who is the end user? 
+    Strive for clarity and simplicity above all else. 
+        Perfection is achieved not when theres nothing more to add, but when theres nothing left to take away. 
+    Focus on creating clear naratives and intuitice user experiences. 
+        use bookmarks, drillthroughs, tooltips and navigation buttons to seamlessly guide users through reports. 
+    Create optimized layouts for mobile viewers
+        create custom mobile layouts if you plan to publish reports to Power Bi service or use the power BI app. 
+    
+    Artificial Intelligence 
+    Features: 
+        anomaly detection, smart narratives, natural language, Q&A visual, decomposition trees and more. 
+
+    Goals 
+        Explore AI generated insights using smart narratives and anomaly detection. 
+        Build and train Q&A visuals to allow users to explore Power BI models using natural language queries. 
+        Learn how to use decomposition trees for data exploration and root cause analysis
+        Use key influencer visuals to identify the underlying factors that drive specific outcomes for the business. 
+
+    Anomaly detection. 
+        Automatically detects and explain anomalies in time series data. 
+            limits 
+                only supports line charts with a time series on the X axis 
+                does not support charts with legends, multiple values, or a secondary axis 
+                Cannot be applied at the same time as forecasts 
+                not compatible with drill up/drill down 
+                Requires at least four data points 
+    to see anomalies we have to drop the multiple x axis in the line chart to have lets say just months instead of the hierarchy. 
+        A band appears having new values expected, min and max. And can be adjusted from formatting pane. 
+
+    find anomalies respond to filter context so even if nothing jumps at first when changing aspects it will. 
+        there is a sensitivity field which can increase or reduce the likelyhood of finding anomalies, increases or decreases the band around data
+            you can even add new visuals generated to explain the anomalies, they are automatically generated. 
+
+    Smart Narratives 
+    there are report level and visual level narratives.  
+
+    Q&A Visuals 
+    allow users to explore and visualize data usiing intuitive, natural language prompts. 
+        Q&A are only as useful as the data model behind them, and tipycally require significant training to be effective. 
+    
     

@@ -90,3 +90,6 @@ Iterator functions add a temporary new column to a table, calculate a value in e
 
 Pro tip
     To calculate a moving average, use the running total calculation above and divide by the number of intervals. 
+
+Pro tip 
+    There is a dedicated button to apply/clear all slicers. Gr8 for resetting when there are more than 1 slicer. 
