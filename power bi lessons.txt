@@ -1875,3 +1875,37 @@ DAX analysis
             python, excel, power bi report builder, 
         Miscellaneous
             dax guide, power bi tips, pbi tips tutorials. 
+
+    Calculation Groups
+        Allow you to simplify measure management by grouping common calculations into a single table reducing the total number of measures in a model. 
+            Used in time intelligence, currency conversion, scenario analysis, dynamic measures, etc 
+                Calculation groups, calculation items (go inside the calculation group)
+
+    So instead of a bunch of measures in a table. You make a kind of folder with measures at the inside in a matrix like drilling. 
+
+    Pro Tip: Build a measure-based field parameter to toggle measures in the visual. 
+    Calculation groups is a good one. Cleans data measures. 
+    How to create them? 
+        Go to model view 
+            model, calculation groups and new calculation group
+                Selectedmeasure opens in a DAX 
+
+    UUUH i see the calculation items can also be used as frequent calculations automized measurements such as Previous month to be applied on several measures. 
+    Genial puedes hacer instantaneamente las tablas con esos sets de medidas. 
+
+    Visual Cards (2.0?)
+    Several measures, font, padding, etc. 
+
+    DAX query View 
+    Can make tables with Dax. 
+    Evaluate, Define, Measure, COUNTROWS(VALUES(''*()[]))
+    Interesting and kind of hard. I will need experience doing this. 
+
+    Button Slicer 
+    List Slicer 
+    To demonstrate a team. Can go back really did not made the process of this. 
+
+    Visual Calculations 
+
+    Make the Bonus Project Maven Market. 
+    (Pending)
